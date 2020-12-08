@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class OrderProduct {
 
     @Id
+    @Column
     @GeneratedValue
     private int id;
 

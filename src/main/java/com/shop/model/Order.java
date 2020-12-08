@@ -7,9 +7,11 @@ import java.util.Date;
 public class Order {
 
     @Id
+    @Column
     @GeneratedValue
     private int id;
 
+    @Column
     private Date orderDate;
 
     @ManyToOne

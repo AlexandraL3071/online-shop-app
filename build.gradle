@@ -1,0 +1,11 @@
+apply plugin: 'war'
+repositories { jcenter() }
+repositories { mavenCentral() }
+dependencies {
+    providedCompile 'javax:javaee-api:+'
+    compile 'org.hibernate:hibernate-core:5.4.24.Final',
+            'org.hibernate:hibernate-entitymanager:5.4.24.Final',
+            'org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final',
+            'javax:javaee-api:8.0',
+            'mysql:mysql-connector-java:8.0.12'
+}

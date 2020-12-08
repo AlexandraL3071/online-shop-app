@@ -3,12 +3,21 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="products">
+    <persistence-unit name="onlineShop">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.shop.model.CartProduct</class>
+        <class>com.shop.model.Category</class>
+        <class>com.shop.model.Order</class>
+        <class>com.shop.model.OrderProduct</class>
+        <class>com.shop.model.Product</class>
+        <class>com.shop.model.User</class>
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/onlineShop" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />
+            <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://localhost:1433;database=onlineShop"/>
+            <property name="javax.persistence.jdbc.username" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value="P@ssword12345"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2012Dialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>

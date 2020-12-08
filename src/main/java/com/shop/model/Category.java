@@ -1,5 +1,6 @@
 package com.shop.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -8,9 +9,11 @@ import javax.persistence.Id;
 public class Category {
 
     @Id
+    @Column
     @GeneratedValue
     private int id;
 
+    @Column
     private String name;
 
     public int getId() {

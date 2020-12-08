@@ -7,6 +7,7 @@ public class CartProduct {
 
     @Id
     @GeneratedValue
+    @Column
     private int id;
 
     @ManyToOne
