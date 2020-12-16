@@ -1,23 +1,26 @@
 package com.shop.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class OrderProduct {
 
     @Id
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private int selectedQuantity;
 
+    @NotNull
     @ManyToOne
-    @JoinColumn(name = "orderId")
+    @JoinColumn
     private Order order;
 
+    @NotNull
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn
     private Product product;
 
     public int getId() {

@@ -1,6 +1,7 @@
 package com.shop.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -8,18 +9,21 @@ public class Order {
 
     @Id
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column
     private Date orderDate;
 
+    @NotNull
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn
     private User user;
 
+    @Column
     private Double totalPrice;
 
+    @Column
     private String deliveryAddress;
 
     public int getId() {
