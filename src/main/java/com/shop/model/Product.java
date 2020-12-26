@@ -1,6 +1,7 @@
 package com.shop.model;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Product {
@@ -9,20 +10,25 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private String name;
 
-    @Column
     private String description;
 
-    @Column
     private int totalQuantity;
 
-    @Column
     private Double price;
 
-    @Column
     private String image;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+    private Collection<OrderProduct> orderProducts;
+
+    @ManyToOne
+    @JoinColumn
+    private Category category;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+    private Collection<CartProduct> cartProducts;
 
     public int getId() {
         return id;
@@ -70,5 +76,29 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Collection<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(Collection<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Collection<CartProduct> getCartProducts() {
+        return cartProducts;
+    }
+
+    public void setCartProducts(Collection<CartProduct> cartProducts) {
+        this.cartProducts = cartProducts;
     }
 }

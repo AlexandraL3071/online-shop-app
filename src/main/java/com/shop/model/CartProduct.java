@@ -1,22 +1,18 @@
 package com.shop.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class CartProduct {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
     private int id;
 
-    @NotNull
     @ManyToOne
     @JoinColumn
     private Product product;
 
-    @NotNull
     @ManyToOne
     @JoinColumn
     private User user;

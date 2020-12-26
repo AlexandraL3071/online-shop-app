@@ -1,29 +1,27 @@
 package com.shop.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
-public class Order {
+public class CustomOrder {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column
     private Date orderDate;
 
-    @NotNull
     @ManyToOne
     @JoinColumn
     private User user;
 
-    @Column
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customOrder")
+    private Collection<OrderProduct> orderProducts;
+
     private Double totalPrice;
 
-    @Column
     private String deliveryAddress;
 
     public int getId() {
@@ -64,5 +62,13 @@ public class Order {
 
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+    }
+
+    public Collection<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(Collection<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 }

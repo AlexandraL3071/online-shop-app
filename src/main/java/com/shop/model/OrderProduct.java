@@ -1,24 +1,20 @@
 package com.shop.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class OrderProduct {
 
     @Id
-    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private int selectedQuantity;
 
-    @NotNull
     @ManyToOne
     @JoinColumn
-    private Order order;
+    private CustomOrder customOrder;
 
-    @NotNull
     @ManyToOne
     @JoinColumn
     private Product product;
@@ -39,12 +35,12 @@ public class OrderProduct {
         this.selectedQuantity = selectedQuantity;
     }
 
-    public Order getOrder() {
-        return order;
+    public CustomOrder getCustomOrder() {
+        return customOrder;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setCustomOrder(CustomOrder customOrder) {
+        this.customOrder = customOrder;
     }
 
     public Product getProduct() {
