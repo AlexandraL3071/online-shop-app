@@ -23,12 +23,12 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
     private Collection<OrderProduct> orderProducts;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+    private Collection<CartProduct> cartProducts;
+
     @ManyToOne
     @JoinColumn
     private Category category;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
-    private Collection<CartProduct> cartProducts;
 
     public int getId() {
         return id;
@@ -86,19 +86,19 @@ public class Product {
         this.orderProducts = orderProducts;
     }
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
     public Collection<CartProduct> getCartProducts() {
         return cartProducts;
     }
 
     public void setCartProducts(Collection<CartProduct> cartProducts) {
         this.cartProducts = cartProducts;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

@@ -13,16 +13,16 @@ public class CustomOrder {
 
     private Date orderDate;
 
+    private Double totalPrice;
+
+    private String deliveryAddress;
+
     @ManyToOne
     @JoinColumn
     private User user;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customOrder")
     private Collection<OrderProduct> orderProducts;
-
-    private Double totalPrice;
-
-    private String deliveryAddress;
 
     public int getId() {
         return id;
@@ -40,14 +40,6 @@ public class CustomOrder {
         this.orderDate = orderDate;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Double getTotalPrice() {
         return totalPrice;
     }
@@ -62,6 +54,14 @@ public class CustomOrder {
 
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Collection<OrderProduct> getOrderProducts() {
