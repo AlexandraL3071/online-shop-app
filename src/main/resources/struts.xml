@@ -10,8 +10,13 @@
 <!--        </action>-->
 
         <action name="register" class="com.shop.actions.RegisterUserAction" method="execute">
-            <result name="success">/WEB-INF/views/successfulRegistration.jsp</result>
+            <result name="success">/homepage.jsp</result>
             <result name="failure">/WEB-INF/views/failedRegistration.jsp</result>
+        </action>
+
+        <action name="login" class="com.shop.actions.LoginUserAction" method="execute">
+            <result name="success">/homepage.jsp</result>
+            <result name="failure">/WEB-INF/views/failedLogin.jsp</result>
         </action>
 
     </package>

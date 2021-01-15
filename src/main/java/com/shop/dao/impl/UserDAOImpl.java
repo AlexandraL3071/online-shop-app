@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean register(User user) throws ObjectAlreadyExistsException {
-        User foundUser = findUser(user);
+        User foundUser = findUserByName(user);
 
         if (foundUser == null) {
             manager.merge(user);
@@ -46,6 +46,20 @@ public class UserDAOImpl implements UserDAO {
         TypedQuery<User> query = manager.createQuery(queryString, User.class);
         query.setParameter("username", username);
         query.setParameter("password", password);
+
+        List<User> users = query.getResultList();
+
+        return users.size() == 0 ? null : users.get(0);
+    }
+
+    @Override
+    public User findUserByName(User user) {
+        String username = user.getUsername();
+
+        String queryString = "SELECT U FROM User U WHERE U.username = :username";
+
+        TypedQuery<User> query = manager.createQuery(queryString, User.class);
+        query.setParameter("username", username);
 
         List<User> users = query.getResultList();
 

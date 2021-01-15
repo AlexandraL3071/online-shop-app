@@ -22,7 +22,7 @@
 </style>
 <body>
 <div style="text-align: center;">
-    <h3 style="color:red">Exista deja un cont cu acest nume de utilizator!</h3>
+    <h3 style="color:red">Nume sau parola incorecta!</h3>
     <form method="POST" action="register">
         <table style="margin: 20px; border: none">
             <tr>
@@ -40,3 +40,4 @@
 </div>
 </body>
 </html>
+

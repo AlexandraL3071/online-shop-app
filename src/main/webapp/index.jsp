@@ -27,13 +27,14 @@
     <table style="margin: 20px; border: none">
         <tr>
             <td><label class="cell" for="username">Nume de utilizator: </label></td>
-            <td><input class="cell" type="text" id="username" name="username"></td>
+            <td><input class="cell" type="text" id="username" name="username" required="required"></td>
         </tr>
         <tr>
             <td><label class="cell" for="password">Parola: </label></td>
-            <td><input class="cell" type="password" id="password" name="password"></td>
+            <td><input class="cell" type="password" id="password" name="password" required="required"></td>
         </tr>
     </table>
+    <input class="btn btn-primary" type="submit" formaction="login" value="Login"/>
     <input class="btn btn-primary" type="submit" value="Register"/>
 </form>
 </div>

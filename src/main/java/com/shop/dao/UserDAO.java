@@ -10,4 +10,6 @@ public interface UserDAO {
     boolean register(User user) throws ObjectAlreadyExistsException;
 
     User findUser(User user);
+
+    User findUserByName(User user);
 }
