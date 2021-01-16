@@ -3,13 +3,16 @@ package com.shop.dao.impl;
 import com.shop.dao.ProductDAO;
 import com.shop.model.Product;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@Transactional
 public class ProductDAOImpl implements ProductDAO {
 
     @PersistenceContext(unitName  = "onlineShop")
@@ -17,21 +20,42 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public boolean addProduct(Product product) {
-        return false;
+        manager.merge(product);
+
+        return true;
     }
 
     @Override
     public boolean deleteProduct(int productId) {
+        Product product = findProductById(productId);
+
+        if (product != null) {
+            manager.remove(product);
+
+            return true;
+        }
+
         return false;
     }
 
     @Override
-    public void updateProduct(Product product) {
+    public boolean updateProduct(Product product) {
+        manager.merge(product);
 
+        return true;
     }
 
     @Override
     public List<Product> findAll() {
-        return new ArrayList<>();
+        String queryString = "SELECT P FROM Product P";
+
+        TypedQuery<Product> query = manager.createQuery(queryString, Product.class);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public Product findProductById(int productId){
+        return manager.find(Product.class, productId);
     }
 }

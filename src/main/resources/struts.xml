@@ -10,13 +10,17 @@
 <!--        </action>-->
 
         <action name="register" class="com.shop.actions.RegisterUserAction" method="execute">
-            <result name="success">/homepage.jsp</result>
+            <result name="success">/WEB-INF/views/enterShop.jsp</result>
             <result name="failure">/WEB-INF/views/failedRegistration.jsp</result>
         </action>
 
         <action name="login" class="com.shop.actions.LoginUserAction" method="execute">
-            <result name="success">/homepage.jsp</result>
+            <result name="success">/WEB-INF/views/enterShop.jsp</result>
             <result name="failure">/WEB-INF/views/failedLogin.jsp</result>
+        </action>
+
+        <action name="products" class="com.shop.actions.ProductAction" method="execute">
+            <result name="success">/homepage.jsp</result>
         </action>
 
     </package>

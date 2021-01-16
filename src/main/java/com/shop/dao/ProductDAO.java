@@ -10,7 +10,9 @@ public interface ProductDAO {
 
 	boolean deleteProduct(int productId);
 
-	void updateProduct(Product product);
+	boolean updateProduct(Product product);
 
 	List<Product> findAll();
+
+	Product findProductById(int productId);
 }
