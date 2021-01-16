@@ -6,34 +6,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <style>
-    /*#header {*/
-    /*    position: relative;*/
-    /*    top: 0;*/
-    /*    height: 14vh;*/
-    /*    width: auto;*/
-    /*    background-color: beige;*/
-    /*    line-height: 14vh*/
-    /*}*/
-    
-    /*#content {*/
-    /*    position: relative;*/
-    /*    height: 75vh;*/
-    /*    width: auto;*/
-    /*    background-color: antiquewhite;*/
-    /*    line-height: 75vh*/
-    /*}*/
-    
-    /*#footer {*/
-    /*    position: relative;*/
-    /*    height: 11vh;*/
-    /*    width: auto;*/
-    /*    background-color: beige;*/
-    /*    line-height: 11vh*/
-    /*}*/
     
 </style>
 <body>
-<div class="container p-3 mb-2 bg-light text-dark">
+<div class="container-fluid p-3 mb-2 bg-light text-dark">
     <div class="row" id="header">
         <div class="col-sm">
             <a href="#" class="btn btn-info btn-lg">
