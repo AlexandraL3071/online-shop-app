@@ -6,15 +6,15 @@ import java.util.List;
 
 public interface ProductDAO {
 
-	boolean addProduct(Product product);
+    boolean addProduct(Product product);
 
-	boolean deleteProduct(int productId);
+    boolean deleteProduct(int productId);
 
-	boolean updateProduct(Product product);
+    boolean updateProduct(Product product);
 
-	List<Product> findAll();
+    List<Product> findAll();
 
-	Product findProductById(int productId);
+    Product findProductById(int productId);
 
-	List<Product> findProductsByCategory(String category);
+    List<Product> findProductsByCategory(String category);
 }

@@ -17,7 +17,7 @@ import java.util.List;
 @Transactional
 public class ProductDAOImpl implements ProductDAO {
 
-    @PersistenceContext(unitName  = "onlineShop")
+    @PersistenceContext(unitName = "onlineShop")
     private EntityManager manager;
 
     @Autowired
@@ -60,7 +60,7 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public Product findProductById(int productId){
+    public Product findProductById(int productId) {
         return manager.find(Product.class, productId);
     }
 

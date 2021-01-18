@@ -15,7 +15,7 @@ public interface ProductService {
 
     Product findProductById(int productId);
 
-   List<Product> findProductsByCategory(String category);
+    List<Product> findProductsByCategory(String category);
 
-   List<Product> findRecommendedProducts();
+    List<Product> findRecommendedProducts();
 }

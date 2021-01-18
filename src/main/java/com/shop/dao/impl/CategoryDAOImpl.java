@@ -14,7 +14,7 @@ import java.util.List;
 @Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
-    @PersistenceContext(unitName  = "onlineShop")
+    @PersistenceContext(unitName = "onlineShop")
     private EntityManager manager;
 
     @Override

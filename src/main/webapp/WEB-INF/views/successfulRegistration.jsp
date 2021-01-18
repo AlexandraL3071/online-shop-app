@@ -5,6 +5,6 @@
     <title>Inregistrare reusita</title>
 </head>
 <body>
-    <h3>V-ati inregistrat cu success!</h3>
+<h3>V-ati inregistrat cu success!</h3>
 </body>
 </html>

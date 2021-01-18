@@ -43,6 +43,7 @@ public class ProductAction extends ActionSupport {
             return title;
         }
     }
+
     public ArrayList<Product> getProductList() {
         return productList;
     }

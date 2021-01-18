@@ -10,13 +10,13 @@
 
     <context:component-scan base-package="com.shop"/>
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="onlineShop" />
+        <property name="persistenceUnitName" value="onlineShop"/>
     </bean>
 
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"
-          p:entityManagerFactory-ref="entityManagerFactory" />
+          p:entityManagerFactory-ref="entityManagerFactory"/>
 
-    <tx:annotation-driven transaction-manager="transactionManager" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
