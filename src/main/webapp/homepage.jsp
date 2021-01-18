@@ -7,7 +7,14 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <style>
+    #grid {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
+    .add-to-cart-button {
+        margin-top: 5px;
+    }
 </style>
 <body>
 <div class="container-fluid p-3 mb-2 bg-light text-dark">
@@ -70,22 +77,29 @@
                 <s:property/>
             </s:iterator>
             </h3>
-            <s:iterator value="productList">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"><s:property value="name"/></h5>
-                        <p class="card-text"><s:property value="description"/></p>
-                        <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
-                        <p class="card-text">Pret: <s:property value="price"/> lei</p>
-                        <label for="quantity">Cantitate:</label>
-                        <input type="number" id="quantity" name="quantity" min="1"
-                               max="<s:property value="totalQuantity"/>">
-                        <a href="#" class="btn btn-primary">Cumpara</a>
+            <div id="grid">
+                <s:iterator value="productList">
+                    <div>
+                        <div class="card" style="width: 18rem;margin: 8px">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><s:property value="name"/></h5>
+                                <p class="card-text"><s:property value="description"/></p>
+                                <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
+                                <p class="card-text">Pret: <s:property value="price"/> lei</p>
+                                <label for="quantity">Cantitate:</label>
+                                <input type="number" id="quantity" name="quantity" min="1"
+                                       max="<s:property value="totalQuantity"/>">
+                            </div>
+                            <div class="card-body">
+                                <a href="#" class="btn btn-primary add-to-cart-button">Adauga
+                                    in cos</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <br>
-            </s:iterator>
+                    <br>
+                </s:iterator>
+            </div>
         </div>
     </div>
     <br>
