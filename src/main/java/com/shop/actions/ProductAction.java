@@ -23,7 +23,7 @@ public class ProductAction extends ActionSupport {
         if (category != null) {
             productList = (ArrayList<Product>) productService.findProductsByCategory(category);
         } else {
-            productList = (ArrayList<Product>) productService.findAllProducts();
+            productList = (ArrayList<Product>) productService.findRecommendedProducts();
         }
 
         return "success";
