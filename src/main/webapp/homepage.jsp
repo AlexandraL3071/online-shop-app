@@ -88,13 +88,13 @@
             </s:iterator>
         </div>
     </div>
-<br>
-<hr/>
-<div class="row" id="footer">
-    <div class="col" style="text-align: center">
-        TPJAD Project 2021
+    <br>
+    <hr/>
+    <div class="row" id="footer">
+        <div class="col" style="text-align: center">
+            TPJAD Project 2021
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>
