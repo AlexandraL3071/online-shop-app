@@ -5,10 +5,6 @@
 <struts>
     <package name="OnlineShopApp" extends="struts-default">
 
-<!--        <action name="findAll" class="productAction">-->
-<!--            <result name="success">/WEB-INF/views/ProductList.jsp</result>-->
-<!--        </action>-->
-
         <action name="register" class="com.shop.actions.RegisterUserAction" method="execute">
             <result name="success">/WEB-INF/views/enterShop.jsp</result>
             <result name="failure">/WEB-INF/views/failedRegistration.jsp</result>

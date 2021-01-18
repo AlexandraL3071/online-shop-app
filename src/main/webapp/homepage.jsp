@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <style>
-    
+
 </style>
 <body>
 <div class="container-fluid p-3 mb-2 bg-light text-dark">
@@ -37,13 +37,13 @@
         <div class="col-4">
             <ul class="list-group">
                 <li class="list-group-item active">Categorii</li>
-                <a href="#"><li class="list-group-item">Telefoane</li></a>
-                <a href="#"><li class="list-group-item">Laptop-uri</li></a>
-                <a href="#"><li class="list-group-item">Periferice</li></a>
-                <a href="#"><li class="list-group-item">Componente PC</li></a>
-                <a href="#"><li class="list-group-item">Monitoare</li></a>
-                <a href="#"><li class="list-group-item">Console</li></a>
-                <a href="#"><li class="list-group-item">Foto/video</li></a>
+                <a href="?category=Telefoane"><li class="list-group-item">Telefoane</li></a>
+                <a href="?category=Laptopuri"><li class="list-group-item">Laptop-uri</li></a>
+                <a href="?category=Periferice"><li class="list-group-item">Periferice</li></a>
+                <a href="?category=ComponentePC"><li class="list-group-item">Componente PC</li></a>
+                <a href="?category=Monitoare"><li class="list-group-item">Monitoare</li></a>
+                <a href="?category=Console"><li class="list-group-item">Console</li></a>
+                <a href="?category=Foto/video"><li class="list-group-item">Foto/video</li></a>
             </ul>
         </div>
         <div class="col-8">

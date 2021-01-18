@@ -1,14 +1,16 @@
 package com.shop.dao.impl;
 
+import com.shop.dao.CategoryDAO;
 import com.shop.dao.ProductDAO;
+import com.shop.model.Category;
 import com.shop.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -17,6 +19,9 @@ public class ProductDAOImpl implements ProductDAO {
 
     @PersistenceContext(unitName  = "onlineShop")
     private EntityManager manager;
+
+    @Autowired
+    private CategoryDAO categoryDAO;
 
     @Override
     public boolean addProduct(Product product) {
@@ -57,5 +62,16 @@ public class ProductDAOImpl implements ProductDAO {
     @Override
     public Product findProductById(int productId){
         return manager.find(Product.class, productId);
+    }
+
+    @Override
+    public List<Product> findProductsByCategory(String name) {
+        Category category = categoryDAO.findByName(name);
+        String queryString = "SELECT P FROM Product P where P.category = :category";
+
+        TypedQuery<Product> query = manager.createQuery(queryString, Product.class);
+        query.setParameter("category", category);
+
+        return query.getResultList();
     }
 }

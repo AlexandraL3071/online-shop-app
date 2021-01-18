@@ -2,7 +2,6 @@ package com.shop.service.impl;
 
 import com.shop.dao.ProductDAO;
 import com.shop.model.Product;
-import com.shop.model.User;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public boolean updateProduct(int productId, String name, String description, int totalQuantity, double price, String image) {
-        Product product=productDAO.findProductById(productId);
+        Product product = productDAO.findProductById(productId);
         product.setName(name);
         product.setDescription(description);
         product.setTotalQuantity(totalQuantity);
@@ -47,6 +46,11 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findProductById(int productId) {
         return productDAO.findProductById(productId);
+    }
+
+    @Override
+    public List<Product> findProductsByCategory(String category) {
+        return productDAO.findProductsByCategory(category);
     }
 
     protected Product createProduct(String name, String description, int totalQuantity, double price, String image) {
