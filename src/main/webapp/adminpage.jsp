@@ -2,6 +2,7 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <%@ taglib uri="/struts-tags" prefix="bean" %>
 <%@ taglib uri="/struts-tags" prefix="html" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Home page</title>
@@ -23,7 +24,9 @@
             </a>
         </div>
         <div class="col-sm" style="text-align: center">
-            <h1>E-LECTRONIX</h1>
+            <a href="products">
+                <img src="images/main_logo.png" width="400" height="65" alt="main_logo">
+            </a>
         </div>
         <div class="col-sm" style="text-align: right">
             <a href="#" class="btn btn-info btn-lg">

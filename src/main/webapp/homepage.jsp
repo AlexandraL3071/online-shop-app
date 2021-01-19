@@ -31,7 +31,9 @@
             </a>
         </div>
         <div class="col-sm" style="text-align: center">
-            <h1>E-LECTRONIX</h1>
+            <a href="products">
+                <img src="images/main_logo.png" width="400" height="65" alt="main_logo">
+            </a>
         </div>
         <div class="col-sm" style="text-align: right">
             <a href="#" class="btn btn-info btn-lg">
@@ -67,7 +69,7 @@
                 <s:iterator value="productList">
                     <div>
                         <div class="card" style="width: 18rem;margin: 8px">
-                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <img class="card-img-top" src="images/<s:property value="image"/>" width="200" height="200" alt="product photo">
                             <div class="card-body">
                                 <h5 class="card-title"><s:property value="name"/></h5>
                                 <p class="card-text"><s:property value="description"/></p>
