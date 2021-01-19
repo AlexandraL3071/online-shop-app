@@ -2,6 +2,7 @@ package com.shop.dao.impl;
 
 import com.shop.dao.CategoryDAO;
 import com.shop.dao.ProductDAO;
+import com.shop.exception.ObjectAlreadyExistsException;
 import com.shop.model.Category;
 import com.shop.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,15 @@ public class ProductDAOImpl implements ProductDAO {
     private CategoryDAO categoryDAO;
 
     @Override
-    public boolean addProduct(Product product) {
-        manager.merge(product);
+    public boolean addProduct(Product product) throws ObjectAlreadyExistsException {
+        Product foundProduct=findProductByName(product);
 
-        return true;
+        if (foundProduct==null) {
+            manager.merge(product);
+
+            return true;
+        }
+        throw new ObjectAlreadyExistsException("Exista deja un produs cu acest nume");
     }
 
     @Override
@@ -73,5 +79,19 @@ public class ProductDAOImpl implements ProductDAO {
         query.setParameter("category", category);
 
         return query.getResultList();
+    }
+
+    @Override
+    public Product findProductByName(Product product) {
+        String name = product.getName();
+
+        String queryString = "SELECT P FROM Product P WHERE P.name = :name";
+
+        TypedQuery<Product> query = manager.createQuery(queryString, Product.class);
+        query.setParameter("name", name);
+
+        List<Product> products = query.getResultList();
+
+        return products.size() == 0 ? null : products.get(0);
     }
 }

@@ -5,11 +5,11 @@ import com.shop.model.Product;
 import java.util.List;
 
 public interface ProductService {
-    boolean addProduct(String name, String description, int totalQuantity, double price, String image);
+    int addProduct(String name, String description, int totalQuantity, double price, String image, String category);
 
     boolean deleteProduct(int productId);
 
-    boolean updateProduct(int productId, String name, String description, int totalQuantity, double price, String image);
+    boolean updateProduct(int productId, int totalQuantity, double price);
 
     List<Product> findAllProducts();
 

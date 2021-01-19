@@ -20,7 +20,7 @@
 <div class="container-fluid p-3 mb-2 bg-light text-dark">
     <div class="row" id="header">
         <div class="col-sm">
-            <a href="#" class="btn btn-info btn-lg">
+            <a href="adminProducts" class="btn btn-info btn-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                      class="bi bi-clipboard-data" viewBox="0 0 20 20">
                     <path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0v-1zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0V7zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0V9z"/>
@@ -47,30 +47,16 @@
     </br>
     <div class="row" id="content">
         <div class="col-4">
-            <ul class="list-group">
-                <li class="list-group-item active">Categorii</li>
-                <a href="?category=Telefoane">
-                    <li class="list-group-item">Telefoane</li>
-                </a>
-                <a href="?category=Laptopuri">
-                    <li class="list-group-item">Laptop-uri</li>
-                </a>
-                <a href="?category=Periferice">
-                    <li class="list-group-item">Periferice</li>
-                </a>
-                <a href="?category=ComponentePC">
-                    <li class="list-group-item">Componente PC</li>
-                </a>
-                <a href="?category=Monitoare">
-                    <li class="list-group-item">Monitoare</li>
-                </a>
-                <a href="?category=Console">
-                    <li class="list-group-item">Console</li>
-                </a>
-                <a href="?category=Foto/video">
-                    <li class="list-group-item">Foto/video</li>
-                </a>
-            </ul>
+            <div class="list-group">
+                <a href="products" class="list-group-item list-group-item-action active">Categorii</a>
+                <a href="?category=Telefoane" class="list-group-item list-group-item-action">Telefoane</a>
+                <a href="?category=Laptopuri" class="list-group-item list-group-item-action">Laptopuri</a>
+                <a href="?category=Periferice" class="list-group-item list-group-item-action">Periferice</a>
+                <a href="?category=ComponentePC" class="list-group-item list-group-item-action">Componente PC</a>
+                <a href="?category=Monitoare" class="list-group-item list-group-item-action">Monitoare</a>
+                <a href="?category=Console" class="list-group-item list-group-item-action">Console</a>
+                <a href="?category=Foto/video" class="list-group-item list-group-item-action">Foto/video</a>
+            </div>
         </div>
         <div class="col-8">
             <h3><s:iterator value="title">

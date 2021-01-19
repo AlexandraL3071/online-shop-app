@@ -35,9 +35,7 @@ public class ProductAction extends ActionSupport {
     }
 
     protected String processSectionTitle(String title) {
-        if (title.equals("Laptopuri")) {
-            return "Laptop-uri";
-        } else if (title.equals("ComponentePC")) {
+        if (title.equals("ComponentePC")) {
             return "Componente PC";
         } else {
             return title;
