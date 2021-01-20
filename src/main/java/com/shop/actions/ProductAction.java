@@ -19,10 +19,6 @@ public class ProductAction extends ActionSupport {
     private ProductService productService;
 
     public String execute() {
-        //productService.addProduct("Laptop","laptop description", 10,20,"image_path");
-        //productService.addProduct("Laptop","laptop description", 10,20,"image_path");
-        //productService.addProduct("Laptop","laptop description", 10,20,"image_path");
-
         if (category != null) {
             title = Collections.singletonList(processSectionTitle(category));
             productList = (ArrayList<Product>) productService.findProductsByCategory(category);
