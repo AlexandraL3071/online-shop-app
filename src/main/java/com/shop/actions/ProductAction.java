@@ -3,17 +3,20 @@ package com.shop.actions;
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.Product;
 import com.shop.service.ProductService;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
-public class ProductAction extends ActionSupport {
+public class ProductAction extends ActionSupport implements SessionAware {
 
     private ArrayList<Product> productList = new ArrayList<Product>();
     private String category;
     private List<String> title;
+    private Map<String, Object> session;
 
     @Autowired
     private ProductService productService;
@@ -27,7 +30,11 @@ public class ProductAction extends ActionSupport {
             productList = (ArrayList<Product>) productService.findRecommendedProducts();
         }
 
-        return "success";
+        if (session.get("loggedUser").equals("admin")) {
+            return "success";
+        }
+
+        return "failure";
     }
 
     protected String processSectionTitle(String title) {
@@ -60,5 +67,10 @@ public class ProductAction extends ActionSupport {
 
     public void setTitle(List<String> title) {
         this.title = title;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
 }

@@ -17,13 +17,15 @@ public class LoginUserAction extends ActionSupport implements SessionAware {
     private UserService userService;
 
     public String execute() {
-        boolean isRegistered = userService.login(username, password);
+        boolean isLoggedIn = userService.login(username, password);
 
-        if (isRegistered) {
+        if (isLoggedIn) {
             session.put("loggedUser", username);
+
+            return "success";
         }
 
-        return isRegistered ? "success" : "failure";
+        return "failure";
     }
 
     public String getUsername() {
