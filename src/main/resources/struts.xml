@@ -26,6 +26,10 @@
             <result name="not_admin_user" type="redirectAction">products</result>
         </action>
 
+        <action name="addProduct">
+            <result>/WEB-INF/views/addProduct.jsp</result>
+        </action>
+
         <action name="logout" class="com.shop.actions.LogoutUserAction" method="execute">
             <result name="success">/index.jsp</result>
         </action>
