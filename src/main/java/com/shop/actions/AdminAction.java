@@ -31,9 +31,7 @@ public class AdminAction extends ActionSupport implements SessionAware {
     private CustomOrderService customOrderService;
 
     public String execute() {
-        if (session.get("loggedUser") == null) {
-            return "not_logged";
-        } else if (!session.get("loggedUser").equals("admin")) {
+        if (!session.get("loggedUser").equals("admin")) {
             return "not_admin_user";
         }
 
