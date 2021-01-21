@@ -22,7 +22,9 @@
 
         <action name="adminProducts" class="com.shop.actions.AdminAction" method="execute">
             <result name="success">/WEB-INF/views/adminpage.jsp</result>
-            <result name="failed">/WEB-INF/views/addProduct.jsp</result>
+            <result name="failure">/WEB-INF/views/addProduct.jsp</result>
+            <result name="not_logged">/index.jsp</result>
+            <result name="not_admin_user">/WEB-INF/views/enterShop.jsp</result>
         </action>
 
         <action name="logout" class="com.shop.actions.LogoutUserAction" method="execute">
