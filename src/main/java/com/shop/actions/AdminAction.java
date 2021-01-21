@@ -3,6 +3,7 @@ package com.shop.actions;
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.CustomOrder;
 import com.shop.model.Product;
+import com.shop.service.CustomOrderService;
 import com.shop.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,7 +24,8 @@ public class AdminAction extends ActionSupport {
     @Autowired
     private ProductService productService;
 
-    //autowired pe customorderservice
+    @Autowired
+    private CustomOrderService customOrderService;
 
     public String execute() {
         if (id!=0 && name==null && description==null && totalQuantity==0 && price==0.0 && image==null && category==null){
@@ -46,7 +48,7 @@ public class AdminAction extends ActionSupport {
 
         allProductList = (ArrayList<Product>) productService.findAllProducts();
 
-        //allOrdersList = (ArrayList<CustomOrder>) customOrderService.findAllOrders();
+        allOrdersList = (ArrayList<CustomOrder>) customOrderService.findAllOrders();
 
         return "success";
     }

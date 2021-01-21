@@ -9,7 +9,16 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <style>
-
+    .inner
+    {
+        display: inline-block;
+    }
+    .input {
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing: border-box;
+    }
 </style>
 <body>
 <div class="container-fluid p-3 mb-2 bg-light text-dark">
@@ -37,20 +46,21 @@
     <hr/>
 
     <div id="content">
-        <a href="addProduct.jsp" class="btn btn-success">Adauga produs</a>
+        <a href="addProduct.jsp" class="inner btn btn-success">Adauga produs</a>
+        <a href="#all-orders" class="inner btn btn-primary">Vezi toate comenzile</a>
         <h4>Toate produsele:</h4>
-        <table class="table table-sm table-hover table-bordered">
+        <table style="width: 100%; table-layout: fixed;" class="table table-sm table-hover table-bordered">
             <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Nume</th>
-                <th scope="col">Descriere</th>
-                <th scope="col">Cantitate</th>
-                <th scope="col">Pret</th>
-                <th scope="col">Imagine</th>
-                <th scope="col">Categorie</th>
-                <th scope="col">Sterge</th>
-                <th scope="col">Update</th>
+                <th style="width: 5%; word-wrap: break-word;" scope="col">Id</th>
+                <th style="width: 15%; word-wrap: break-word;" scope="col">Nume</th>
+                <th style="width: 19%; word-wrap: break-word;" scope="col">Descriere</th>
+                <th style="width: 15%; word-wrap: break-word;" scope="col">Cantitate</th>
+                <th style="width: 15%; word-wrap: break-word;" scope="col">Pret (lei)</th>
+                <th style="width: 10%; word-wrap: break-word;" scope="col">Imagine</th>
+                <th style="width: 9%; word-wrap: break-word;" scope="col">Categorie</th>
+                <th style="width: 6%; word-wrap: break-word;" scope="col">Sterge</th>
+                <th style="width: 6%; word-wrap: break-word;" scope="col">Update</th>
             </tr>
             </thead>
             <tbody>
@@ -58,47 +68,53 @@
                 <tr>
                     <form id="formd<s:property value="id"/>" action="adminProducts"><input type="hidden" name="id" value="<s:property value="id"/>"/></form>
                     <form id="formu<s:property value="id"/>" action="adminProducts"><input type="hidden" name="id" value="<s:property value="id"/>"/></form>
-                    <th scope="row"><form id="formu<s:property value="id"/>" action="adminProducts"><s:property value="id"/></form></th>
-                    <td><s:property value="name"/></td>
-                    <td><s:property value="description"/></td>
-                    <td><input form="formu<s:property value="id"/>" type="number" name="totalQuantity" value="<s:property value="totalQuantity"/>" min="1" required/></td>
-                    <td><input form="formu<s:property value="id"/>" type="number" name="price" value="<s:property value="price"/>" min="1" step="0.01" required/></td>
-                    <td><s:property value="image"/></td>
-                    <td><s:property value="category.getName()"/></td>
-                    <td><input form="formd<s:property value="id"/>" class="btn btn-danger" type="submit" value="Sterge" /></td>
-                    <td><input form="formu<s:property value="id"/>" class="btn btn-primary" type="submit" value="Update" /></td>
+                    <th style="word-wrap: break-word" scope="row"><s:property value="id"/></th>
+                    <td style="word-wrap: break-word"><s:property value="name"/></td>
+                    <td style="word-wrap: break-word"><s:property value="description"/></td>
+                    <td><input class="input" form="formu<s:property value="id"/>" type="number" name="totalQuantity" value="<s:property value="totalQuantity"/>" min="1" required/></td>
+                    <td><input class="input" form="formu<s:property value="id"/>" type="number" name="price" value="<s:property value="price"/>" min="1" step="0.01" required/></td>
+                    <td style="word-wrap: break-word"><s:property value="image"/></td>
+                    <td style="word-wrap: break-word"><s:property value="category.getName()"/></td>
+                    <td><input form="formd<s:property value="id"/>" class="input btn btn-danger" type="submit" value="Sterge" /></td>
+                    <td><input form="formu<s:property value="id"/>" class="input btn btn-primary" type="submit" value="Update" /></td>
                 </tr>
             </s:iterator>
             </tbody>
         </table>
-        <h4>Toate comenzile:</h4>
-        <table class="table table-sm table-hover table-bordered">
+        <a id="all-orders">
+            <h4>Toate comenzile:</h4></a>
+        <table style="width: 100%; table-layout: fixed;" class="table table-sm table-hover table-bordered">
             <thead>
             <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Username</th>
-                <th scope="col">Produse</th>
-                <th scope="col">Pret Total</th>
-                <th scope="col">Adresa de livrare</th>
+                <th style="width: 5%; word-wrap: break-word;" scope="col">Id</th>
+                <th style="width: 11%; word-wrap: break-word;" scope="col">Username</th>
+                <th style="width: 34%; word-wrap: break-word;" scope="col">Produse (nume+cantitate)</th>
+                <th style="width: 10%; word-wrap: break-word;" scope="col">Pret Total</th>
+                <th style="width: 25%; word-wrap: break-word;" scope="col">Adresa de livrare</th>
+                <th style="width: 15%; word-wrap: break-word;" scope="col">Data si ora comenzii</th>
             </tr>
             </thead>
             <tbody>
             <s:iterator value="allOrdersList">
                 <tr>
-                    <th scope="row"><s:property value="id"/></th>
-                    <td><s:property value="user.getUsername()"/></td>
+                    <th style="word-wrap: break-word" scope="row"><s:property value="id"/></th>
+                    <td style="word-wrap: break-word"><s:property value="user.getUsername()"/></td>
                     <td>
-                        <table class="table table-sm table-hover table-bordered">
+                        <table style="width: 100%; table-layout: fixed;" class="table table-sm table-hover table-bordered">
                             <tbody>
-                                <s:iterator value="orderProducts">
-                                    <td><s:property value="product.getName()"/></td>
-                                    <td><s:property value="selectedQuantity"/></td>
-                                </s:iterator>
+                            <s:iterator value="orderProducts">
+                                <tr>
+                                    <td style="width:75%; word-wrap: break-word;"><s:property value="product.getName()"/></td>
+                                    <td style="width:25%; word-wrap: break-word;"><s:property value="selectedQuantity"/></td>
+                                </tr>
+                            </s:iterator>
                             </tbody>
                         </table>
                     </td>
-                    <td><s:property value="totalPrice"/></td>
-                    <td><s:property value="deliveryAddress"/></td>
+                    <td style="word-wrap: break-word">
+                        <s:property value="getText('{0,number,#,##0.00}',{totalPrice})"/> lei</td>
+                    <td style="word-wrap: break-word"><s:property value="deliveryAddress"/></td>
+                    <td style="word-wrap: break-word"><s:property value="orderDate.toLocaleString()"/></td>
                 </tr>
             </s:iterator>
             </tbody>
