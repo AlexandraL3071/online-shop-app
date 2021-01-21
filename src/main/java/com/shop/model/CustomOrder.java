@@ -21,7 +21,7 @@ public class CustomOrder {
     @JoinColumn
     private User user;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customOrder")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customOrder")
     private Collection<OrderProduct> orderProducts;
 
     public int getId() {
