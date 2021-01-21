@@ -46,7 +46,7 @@
     <hr/>
 
     <div id="content">
-        <a href="addProduct.jsp" class="inner btn btn-success">Adauga produs</a>
+        <a href="addProduct" class="inner btn btn-success">Adauga produs</a>
         <a href="#all-orders" class="inner btn btn-primary">Vezi toate comenzile</a>
         <h4>Toate produsele:</h4>
         <table style="width: 100%; table-layout: fixed;" class="table table-sm table-hover table-bordered">
