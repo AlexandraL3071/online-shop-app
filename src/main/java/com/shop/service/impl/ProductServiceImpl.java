@@ -80,10 +80,15 @@ public class ProductServiceImpl implements ProductService {
         }
 
         if (products.size() >= NUMBER_OF_RECOMMENDED_PRODUCTS) {
-            for (int i = 0; i < NUMBER_OF_RECOMMENDED_PRODUCTS; i++) {
+            int i = 0;
+
+            while (i < NUMBER_OF_RECOMMENDED_PRODUCTS) {
                 int randomIndex = random.nextInt(products.size());
 
-                recommendedProducts.add(products.get(randomIndex));
+                if (!recommendedProducts.contains(products.get(randomIndex))) {
+                    recommendedProducts.add(products.get(randomIndex));
+                    i++;
+                }
             }
 
             return recommendedProducts;
