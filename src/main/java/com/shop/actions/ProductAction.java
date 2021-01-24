@@ -30,11 +30,13 @@ public class ProductAction extends ActionSupport implements SessionAware {
             productList = (ArrayList<Product>) productService.findRecommendedProducts();
         }
 
-        if (session.get("loggedUser").equals("admin")) {
-            return "success";
+        if (session.get("loggedUser") == null) {
+            return "not_logged";
+        } else if (session.get("loggedUser").equals("admin")) {
+            return "admin";
         }
 
-        return "failure";
+        return "logged_user";
     }
 
     protected String processSectionTitle(String title) {

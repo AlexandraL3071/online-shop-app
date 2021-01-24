@@ -10,7 +10,7 @@ public class LogoutUserAction extends ActionSupport implements SessionAware {
     private Map<String, Object> session;
 
     public String execute() {
-        session.put("loggedUser", "");
+        session.put("loggedUser", null);
 
         return "success";
     }
