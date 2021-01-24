@@ -7,34 +7,45 @@ import com.shop.model.Product;
 import com.shop.model.User;
 import com.shop.service.CartService;
 import com.shop.service.ProductService;
-import com.shop.service.UserService;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class AddToCartAction extends ActionSupport {
+import java.util.Map;
 
-    private String userName;
+public class AddToCartAction extends ActionSupport implements SessionAware {
 
     private int productId;
-
-    private UserDAO userService;
-
-    private ProductService productService;
-
-    private CartService cartService;
+    private Map<String, Object> session;
 
     @Autowired
-    public AddToCartAction(UserDAO userService, ProductService productService, CartService cartService) {
-        this.userService = userService;
-        this.productService = productService;
-        this.cartService = cartService;
-    }
+    private UserDAO userService;
 
-    public String getUserName() {
-        return userName;
-    }
+    @Autowired
+    private ProductService productService;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    @Autowired
+    private CartService cartService;
+
+    @Override
+    public String execute() {
+        String username;
+
+        if (session.get("loggedUser") != null) {
+            username = (String) session.get("loggedUser");
+        } else {
+            username = "anonymous";
+        }
+
+        User userByUsername = new User();
+        userByUsername.setUsername(username);
+        User user = userService.findUserByName(userByUsername);
+        Product product = productService.findProductById(productId);
+        CartProduct cartProduct = new CartProduct();
+        cartProduct.setUser(user);
+        cartProduct.setProduct(product);
+        cartService.addToCart(cartProduct);
+
+        return "success";
     }
 
     public int getProductId() {
@@ -46,16 +57,9 @@ public class AddToCartAction extends ActionSupport {
     }
 
     @Override
-    public String execute() {
-        User userByUsername = new User();
-        userByUsername.setUsername(userName);
-        User user = userService.findUserByName(userByUsername);
-        Product product = productService.findProductById(productId);
-        CartProduct cartProduct = new CartProduct();
-        cartProduct.setUser(user);
-        cartProduct.setProduct(product);
-        cartService.addToCart(cartProduct);
-
-        return "success";
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
+
+
 }

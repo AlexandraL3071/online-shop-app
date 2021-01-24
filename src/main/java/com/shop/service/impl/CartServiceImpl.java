@@ -5,9 +5,11 @@ import com.shop.model.CartProduct;
 import com.shop.model.Product;
 import com.shop.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CartServiceImpl implements CartService {
 
     @Autowired
@@ -19,7 +21,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public List<Product> findProductsByUserName(String username) {
+    public List<Product> findProductsByUsername(String username) {
         return cartProductDAO.findProductsByUsername(username);
     }
 }

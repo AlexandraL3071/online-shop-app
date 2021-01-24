@@ -70,24 +70,24 @@
         <div id="grid">
             <s:iterator value="productList">
                 <div>
-                    <div class="card" style="width: 18rem;margin: 8px">
-                        <img class="card-img-top" src="images/<s:property value="image"/>" width="200" height="200"
-                             alt="product photo">
-                        <div class="card-body">
-                            <h5 class="card-title"><s:property value="name"/></h5>
-                            <p class="card-text"><s:property value="description"/></p>
-                            <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
-                            <p class="card-text">Pret: <s:property value="price"/> lei</p>
-                            <label for="quantity">Cantitate:</label>
-                            <input type="number" id="quantity" name="quantity" min="1"
-                                   max="<s:property value="totalQuantity"/>">
-                        </div>
-                        <div class="card-body">
-                            <a href="#" class="btn btn-primary add-to-cart-button">Adauga
-                                in cos</a>
-                        </div>
+                <div class="card" style="width: 18rem;margin: 8px">
+                    <img class="card-img-top" src="images/<s:property value="image"/>" width="200" height="200"
+                         alt="product photo">
+                    <div class="card-body">
+                        <h5 class="card-title"><s:property value="name"/></h5>
+                        <p class="card-text"><s:property value="description"/></p>
+                        <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
+                        <p class="card-text">Pret: <s:property value="price"/> lei</p>
+                        <label for="quantity">Cantitate:</label>
+                        <input type="number" id="quantity" name="quantity" min="1"
+                               max="<s:property value="totalQuantity"/>">
+                    </div>
+                    <div class="card-body">
+                        <a href="cartProducts?productId=<s:property value="id"/>" class="btn btn-primary add-to-cart-button">Adauga
+                            in cos</a>
                     </div>
                 </div>
+            </div>
                 <br>
             </s:iterator>
         </div>

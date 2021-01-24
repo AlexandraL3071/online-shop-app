@@ -3,16 +3,30 @@ package com.shop.actions;
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.Product;
 import com.shop.service.CartService;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
-public class ProductsInCartAction extends ActionSupport {
+public class ProductsInCartAction extends ActionSupport implements SessionAware {
 
     private List<Product> products = new ArrayList<>();
-
-    private String username;
+    private Map<String, Object> session;
 
     @Autowired
     private CartService cartService;
+
+    @Override
+    public String execute() {
+        String username;
+
+        if (session.get("loggedUser") != null) {
+            username = (String) session.get("loggedUser");
+        } else {
+            username = "anonymous";
+        }
+
+        products = cartService.findProductsByUsername(username);
+        return "success";
+    }
 
     public List<Product> getProducts() {
         return products;
@@ -22,17 +36,8 @@ public class ProductsInCartAction extends ActionSupport {
         this.products = products;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @Override
-    public String execute() {
-        products = cartService.findProductsByUserName(username);
-        return "success";
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
 }

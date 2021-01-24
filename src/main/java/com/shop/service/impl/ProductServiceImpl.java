@@ -64,6 +64,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product findProductByName(String name) {
+        Product product = new Product();
+        product.setName(name);
+
+        return productDAO.findProductByName(product);
+    }
+
+    @Override
     public List<Product> findProductsByCategory(String category) {
         return productDAO.findProductsByCategory(category);
     }

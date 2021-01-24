@@ -75,7 +75,7 @@
                                    max="<s:property value="totalQuantity"/>">
                         </div>
                         <div class="card-body">
-                            <a href="#" class="btn btn-primary add-to-cart-button">Adauga
+                            <a href="cartProducts?productId=<s:property value="id"/>" class="btn btn-primary add-to-cart-button">Adauga
                                 in cos</a>
                         </div>
                     </div>

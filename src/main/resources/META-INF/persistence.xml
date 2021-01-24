@@ -4,7 +4,7 @@
              xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="onlineShop">
-        <jta-data-source>java:jboss/datasources/MySqlDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/MySqlDSForProject</jta-data-source>
         <class>com.shop.model.Product</class>
         <class>com.shop.model.Category</class>
         <class>com.shop.model.User</class>
@@ -13,7 +13,7 @@
         <class>com.shop.model.CartProduct</class>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
             <property name="show_sql" value="true"/>
             <property name="format_sql" value="true"/>
             <property name="use_sql_comments" value="true"/>
