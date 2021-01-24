@@ -1,11 +1,18 @@
 apply plugin: 'war'
 repositories { jcenter() }
 repositories { mavenCentral() }
+configurations {
+    provided
+}
+
+sourceSets {
+    main { compileClasspath += configurations.provided }
+}
 dependencies {
     providedCompile 'javax:javaee-api:+'
-    compile 'org.springframework:spring-context:5.2.12.RELEASE',
-            'org.springframework:spring-context-support:5.2.12.RELEASE',
-            'org.springframework:spring-orm:5.2.12.RELEASE',
+    compile 'org.springframework:spring-context:2.1.0.RELEASE',
+            'org.springframework:spring-context-support:4.3.25.RELEASE',
+            'org.springframework:spring-orm:4.3.25.RELEASE',
             'org.apache.struts:struts2-core:2.5',
             'org.apache.struts:struts2-spring-plugin:2.5',
             'org.hibernate:hibernate-core:5.4.24.Final',
@@ -14,5 +21,7 @@ dependencies {
             'javax:javaee-api:8.0',
             'mysql:mysql-connector-java:8.0.12',
             'javax.servlet:jstl:+',
-            'taglibs:standard:+'
+            'taglibs:standard:+',
+            'org.dom4j:com.springsource.org.dom4j:1.6.1'
+
 }

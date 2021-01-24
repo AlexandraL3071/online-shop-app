@@ -1,8 +1,16 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: mirun
+  Date: 24.01.2021
+  Time: 10:49
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Home page</title>
+    <title>Cart</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -35,38 +43,18 @@
                 <img src="images/main_logo.png" width="400" height="65" alt="main_logo">
             </a>
         </div>
-        <div class="col-sm" style="text-align: right">
-            <a href="#" class="btn btn-info btn-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                     class="bi bi-cart-fill" viewBox="0 0 20 20">
-                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                </svg>
-                Shopping Cart
-            </a>
-        </div>
+
     </div>
     <hr/>
     </br>
     <div class="row" id="content">
-        <div class="col-4">
-            <div class="list-group">
-                <a href="products" class="list-group-item list-group-item-action active">Categorii</a>
-                <a href="?category=Telefoane" class="list-group-item list-group-item-action">Telefoane</a>
-                <a href="?category=Laptopuri" class="list-group-item list-group-item-action">Laptopuri</a>
-                <a href="?category=Periferice" class="list-group-item list-group-item-action">Periferice</a>
-                <a href="?category=ComponentePC" class="list-group-item list-group-item-action">Componente PC</a>
-                <a href="?category=Monitoare" class="list-group-item list-group-item-action">Monitoare</a>
-                <a href="?category=Console" class="list-group-item list-group-item-action">Console</a>
-                <a href="?category=Foto/video" class="list-group-item list-group-item-action">Foto/video</a>
-            </div>
-        </div>
         <div class="col-8">
             <h3><s:iterator value="title">
                 <s:property/>
             </s:iterator>
             </h3>
             <div id="grid">
-                <s:iterator value="productList">
+                <s:iterator value="products">
                     <div>
                         <div class="card" style="width: 18rem;margin: 8px">
                             <img class="card-img-top" src="images/<s:property value="image"/>" width="200" height="200" alt="product photo">
@@ -79,10 +67,7 @@
                                 <input type="number" id="quantity" name="quantity" min="1"
                                        max="<s:property value="totalQuantity"/>">
                             </div>
-                            <div class="card-body">
-                                <a href="cartProducts" class="btn btn-primary add-to-cart-button">Adauga
-                                    in cos</a>
-                            </div>
+
                         </div>
                     </div>
                     <br>
