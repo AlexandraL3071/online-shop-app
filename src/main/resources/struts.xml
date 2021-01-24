@@ -16,12 +16,22 @@
         </action>
 
         <action name="products" class="com.shop.actions.ProductAction" method="execute">
-            <result name="success">/homepage.jsp</result>
+            <result name="success">/WEB-INF/views/homepage.jsp</result>
+            <result name="failure">/WEB-INF/views/userpage.jsp</result>
         </action>
 
         <action name="adminProducts" class="com.shop.actions.AdminAction" method="execute">
-            <result name="success">/adminpage.jsp</result>
-            <result name="failed">/addProduct.jsp</result>
+            <result name="success">/WEB-INF/views/adminpage.jsp</result>
+            <result name="failure">/WEB-INF/views/addProduct.jsp</result>
+            <result name="not_admin_user" type="redirectAction">products</result>
+        </action>
+
+        <action name="addProduct">
+            <result>/WEB-INF/views/addProduct.jsp</result>
+        </action>
+
+        <action name="logout" class="com.shop.actions.LogoutUserAction" method="execute">
+            <result name="success">/index.jsp</result>
         </action>
 
         <action name="cartProducts" class="com.shop.actions.AddToCartAction" method="execute">

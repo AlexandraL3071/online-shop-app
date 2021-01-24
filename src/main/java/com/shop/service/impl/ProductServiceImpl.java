@@ -75,13 +75,26 @@ public class ProductServiceImpl implements ProductService {
 
         Random random = new Random();
 
-        for (int i = 0; i < NUMBER_OF_RECOMMENDED_PRODUCTS; i++) {
-            int randomIndex = random.nextInt(products.size());
-
-            recommendedProducts.add(products.get(randomIndex));
+        if (products.size() == 0) {
+            return new ArrayList<>();
         }
 
-        return recommendedProducts;
+        if (products.size() >= NUMBER_OF_RECOMMENDED_PRODUCTS) {
+            int i = 0;
+
+            while (i < NUMBER_OF_RECOMMENDED_PRODUCTS) {
+                int randomIndex = random.nextInt(products.size());
+
+                if (!recommendedProducts.contains(products.get(randomIndex))) {
+                    recommendedProducts.add(products.get(randomIndex));
+                    i++;
+                }
+            }
+
+            return recommendedProducts;
+        }
+
+        return products;
     }
 
     protected Product createProduct(String name, String description, int totalQuantity, double price, String image, String category) {

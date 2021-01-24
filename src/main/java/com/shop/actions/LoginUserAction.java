@@ -2,20 +2,30 @@ package com.shop.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.service.UserService;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class LoginUserAction extends ActionSupport {
+import java.util.Map;
+
+public class LoginUserAction extends ActionSupport implements SessionAware {
 
     private String username;
     private String password;
+    private Map<String, Object> session;
 
     @Autowired
     private UserService userService;
 
     public String execute() {
-        boolean isRegistered = userService.login(username, password);
+        boolean isLoggedIn = userService.login(username, password);
 
-        return isRegistered ? "success" : "failure";
+        if (isLoggedIn) {
+            session.put("loggedUser", username);
+
+            return "success";
+        }
+
+        return "failure";
     }
 
     public String getUsername() {
@@ -32,5 +42,10 @@ public class LoginUserAction extends ActionSupport {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> session) {
+        this.session = session;
     }
 }
