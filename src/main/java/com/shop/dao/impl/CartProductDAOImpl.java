@@ -31,7 +31,7 @@ public class CartProductDAOImpl implements CartProductDAO {
     }
 
     @Override
-    public List<Product> findProductsByUsername(String username) {
+    public List<CartProduct> findProductsByUsername(String username) {
         User user = new User();
         user.setUsername(username);
         User foundUser = userDAO.findUserByName(user);
@@ -39,8 +39,6 @@ public class CartProductDAOImpl implements CartProductDAO {
         TypedQuery<CartProduct> query = manager.createQuery(queryString, CartProduct.class);
         query.setParameter("user", foundUser);
 
-        return query.getResultList().stream()
-                .map(CartProduct::getProduct)
-                .collect(Collectors.toList());
+        return query.getResultList();
     }
 }

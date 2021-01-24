@@ -9,6 +9,8 @@ public class CartProduct {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    private int selectedQuantity;
+
     @ManyToOne
     @JoinColumn
     private Product product;
@@ -39,5 +41,13 @@ public class CartProduct {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getSelectedQuantity() {
+        return selectedQuantity;
+    }
+
+    public void setSelectedQuantity(int selectedQuantity) {
+        this.selectedQuantity = selectedQuantity;
     }
 }

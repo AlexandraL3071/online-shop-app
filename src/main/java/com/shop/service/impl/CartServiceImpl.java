@@ -21,7 +21,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public List<Product> findProductsByUsername(String username) {
+    public List<CartProduct> findProductsByUsername(String username) {
         return cartProductDAO.findProductsByUsername(username);
     }
 }

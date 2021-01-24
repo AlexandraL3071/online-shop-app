@@ -1,5 +1,6 @@
 package com.shop.actions;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.dao.UserDAO;
 import com.shop.model.CartProduct;
@@ -13,8 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 public class AddToCartAction extends ActionSupport implements SessionAware {
-
     private int productId;
+    private int quantity;
     private Map<String, Object> session;
 
     @Autowired
@@ -28,6 +29,10 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
 
     @Override
     public String execute() {
+        ActionContext.getContext().getSession().put("quantity", getQuantity());
+        ActionContext.getContext().getSession().put("productId", getProductId());
+        quantity = quantity == 0 ? 1 : quantity;
+
         String username;
 
         if (session.get("loggedUser") != null) {
@@ -43,6 +48,7 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
         CartProduct cartProduct = new CartProduct();
         cartProduct.setUser(user);
         cartProduct.setProduct(product);
+        cartProduct.setSelectedQuantity(quantity);
         cartService.addToCart(cartProduct);
 
         return "success";
@@ -62,4 +68,11 @@ public class AddToCartAction extends ActionSupport implements SessionAware {
     }
 
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
