@@ -16,8 +16,9 @@
         </action>
 
         <action name="products" class="com.shop.actions.ProductAction" method="execute">
-            <result name="success">/WEB-INF/views/homepage.jsp</result>
-            <result name="failure">/WEB-INF/views/userpage.jsp</result>
+            <result name="admin">/WEB-INF/views/homepage.jsp</result>
+            <result name="logged_user">/WEB-INF/views/userpage.jsp</result>
+            <result name="not_logged">/WEB-INF/views/anonymousUserpage.jsp</result>
         </action>
 
         <action name="adminProducts" class="com.shop.actions.AdminAction" method="execute">
