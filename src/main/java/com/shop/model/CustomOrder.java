@@ -26,7 +26,8 @@ public class CustomOrder {
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true,
-            mappedBy = "customOrder"
+            mappedBy = "customOrder",
+            fetch = FetchType.EAGER
     )
     private Collection<OrderProduct> orderProducts;
 
