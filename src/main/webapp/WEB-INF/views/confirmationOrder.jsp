@@ -9,13 +9,23 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Success</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-<div style="text-align: center;">
-    <h3 style="color:green">Your order has been successfully sent!</h3>
-    <h3>Go back to shop:</h3>
-    <a href="products" class="btn btn-primary">Enter</a>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-sm-6 col-sm-offset-3">
+            <br><br> <h2 style="color:#0fad00">Success</h2>
+            <h3>Your order has been successfully sent!</h3>
+            <p style="font-size:20px;color:#5C5C5C;">Thank you for shopping with us!</p>
+            <a href="products" class="btn btn-success">     Enter Site      </a>
+            <br><br>
+        </div>
+
+    </div>
 </div>
 </body>
 </html>

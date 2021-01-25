@@ -31,7 +31,7 @@
     </div>
     <hr/>
     </br>
-    <div>
+    <div style="margin-left: 20%; margin-right: 20%">
         <h3>Summary:</h3>
         <s:form action="sendOrderDetails" theme="css_xhtml">
             <table class="table table-hover">
@@ -57,21 +57,21 @@
                 </s:iterator>
                 </tbody>
             </table>
-            <h5>Total price: <s:textfield name="totalPrice" value="%{totalPrice}" readonly="true"/></h5>
+            <h5>Total price: <s:textfield style="border: none" name="totalPrice" value="%{totalPrice}" readonly="true"/></h5>
             <br>
             <h3>
                 Shipping details:
             </h3>
-            <h5>User: <s:textfield id="username" name="username" value="%{username}" readonly="true"/></h5>
+            <h5>User: <s:textfield style="border: none" id="username" name="username" value="%{username}" readonly="true"/></h5>
             <script type="text/javascript">
                 if(document.getElementById("username").value === "anonymous"){
                     document.getElementById("username").setAttribute("value", "Not an user");
                 }
             </script>
-            <h5>Date: <s:textfield name="date" value="%{date}" readonly="true"/></h5>
-            <h5>Name: <s:textfield type="text" id="name" name="name" size="50"
+            <h5>Date: <s:textfield style="border: none" name="date" value="%{date}" readonly="true"/></h5>
+            <h5>Name: <s:textfield style="border: none" type="text" id="name" name="name" size="50"
                                       placeholder="Enter your name..."/></h5>
-            <h5>Address: <s:textfield type="text" id="address" name="address" size="50"
+            <h5>Address: <s:textfield style="border: none" type="text" id="address" name="address" size="50"
                                       placeholder="Enter your address..."/></h5>
             <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 8vw">
                 Confirm and Submit
