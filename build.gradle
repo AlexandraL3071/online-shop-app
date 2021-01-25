@@ -14,5 +14,7 @@ dependencies {
             'javax:javaee-api:8.0',
             'mysql:mysql-connector-java:8.0.12',
             'javax.servlet:jstl:+',
-            'taglibs:standard:+'
+            'taglibs:standard:+',
+            'log4j:log4j:1.2.17',
+            'commons-logging:commons-logging:1.2'
 }
