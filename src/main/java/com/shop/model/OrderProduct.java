@@ -11,7 +11,7 @@ public class OrderProduct {
 
     private int selectedQuantity;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn
     private CustomOrder customOrder;
 

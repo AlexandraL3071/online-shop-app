@@ -50,7 +50,7 @@
             </h3>
             <div id="grid">
                 <s:iterator value="products">
-                    <div>
+                    <div id="product_cards">
                         <div class="card" style="width: 18rem;margin: 8px">
                             <img class="card-img-top" src="images/<s:property value="product.image"/>" width="200" height="200" alt="product photo">
                             <div class="card-body">
@@ -68,6 +68,16 @@
         </div>
     </div>
     <br>
+    <s:form action="placeOrder" class="col">
+        <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block">
+            Place Order
+        </button>
+        <script type="text/javascript">
+            if(document.getElementById("grid").childElementCount === 0){
+                document.getElementById("submitButton").disabled = true;
+            }
+        </script>
+    </s:form>
     <hr/>
     <div class="row" id="footer">
         <div class="col" style="text-align: center">

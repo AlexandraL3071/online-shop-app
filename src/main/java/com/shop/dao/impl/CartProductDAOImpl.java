@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,6 +29,14 @@ public class CartProductDAOImpl implements CartProductDAO {
     @Override
     public void addToCart(CartProduct cartProduct) {
         manager.merge(cartProduct);
+    }
+
+    @Override
+    public void deleteFromCart(User user) {
+        String queryString = "DELETE FROM CartProduct cp where cp.user=:user";
+        Query query = manager.createQuery(queryString);
+        query.setParameter("user", user);
+        query.executeUpdate();
     }
 
     @Override
