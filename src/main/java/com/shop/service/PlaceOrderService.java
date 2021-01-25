@@ -9,5 +9,6 @@ public interface PlaceOrderService {
 
     Double getTotalPrice(List<CartProduct> cartProducts);
 
-    boolean sendOrderDetails(String username, String date, String address, Double price, List<CartProduct> cartProducts);
+    boolean sendOrderDetails(String username, String name, String date, String address, Double price,
+                             List<CartProduct> cartProducts);
 }

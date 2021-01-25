@@ -29,6 +29,7 @@ public class SendOrderDetailsAction extends ActionSupport implements SessionAwar
     private String date;
     private String username;
     private String address;
+    private String name;
     private List<CartProduct> products;
 
     private Map<String, Object> session;
@@ -41,10 +42,17 @@ public class SendOrderDetailsAction extends ActionSupport implements SessionAwar
 
     @Override
     public String execute() {
-        logger.error("HERE");
+        if (session.get("loggedUser") != null) {
+            username = (String) session.get("loggedUser");
+        } else {
+            username = "anonymous";
+        }
+
+        logger.error("Username: " + username);
+
         this.products = cartService.findProductsByUsername(username);
 
-        if (!placeOrderService.sendOrderDetails(username, date, address, totalPrice, products))
+        if (!placeOrderService.sendOrderDetails(username, name, date, address, totalPrice, products))
             return "error";
 
         return "success";
@@ -97,5 +105,13 @@ public class SendOrderDetailsAction extends ActionSupport implements SessionAwar
 
     public void setProducts(List<CartProduct> products) {
         this.products = products;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

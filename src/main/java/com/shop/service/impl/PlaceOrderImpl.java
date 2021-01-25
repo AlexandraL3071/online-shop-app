@@ -12,7 +12,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -43,11 +42,12 @@ public class PlaceOrderImpl implements PlaceOrderService {
     }
 
     @Override
-    public boolean sendOrderDetails(String username, String date, String address, Double price, List<CartProduct> cartProducts) {
+    public boolean sendOrderDetails(String username, String name, String date, String address, Double price, List<CartProduct> cartProducts) {
         CustomOrder customOrder = new CustomOrder();
         logger.error("Begin sendOrderDetails...");
         logger.error("Date: " + date);
-        logger.error("User: " + username);
+        logger.error("Username: " + username);
+        logger.error("Name: " + name);
 
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSS");
         format.setTimeZone(TimeZone.getTimeZone("GMT"));
@@ -59,7 +59,6 @@ public class PlaceOrderImpl implements PlaceOrderService {
             return false;
         }
 
-
         User userByUsername = new User();
         userByUsername.setUsername(username);
         User user = userService.findUserByName(userByUsername);
@@ -67,26 +66,24 @@ public class PlaceOrderImpl implements PlaceOrderService {
         logger.error("User: " + user);
 
         customOrder.setUser(user);
+        customOrder.setName(name);
         customOrder.setDeliveryAddress(address);
-
-        logger.error("Address: " + address);
         customOrder.setTotalPrice(price);
-
-        logger.error("Price: " + price);
 
         List<OrderProduct> orderProductList = new ArrayList<>();
         cartProducts.forEach(cartProduct -> {
-            logger.error("Cart Product: " + cartProduct);
             OrderProduct orderProduct = new OrderProduct();
             orderProduct.setProduct(cartProduct.getProduct());
             orderProduct.setSelectedQuantity(cartProduct.getSelectedQuantity());
             orderProduct.setCustomOrder(customOrder);
             orderProductList.add(orderProduct);
-            orderProductDAO.addOrderProduct(orderProduct);
         });
 
         customOrder.setOrderProducts(orderProductList);
         customOrderDAO.addOrder(customOrder);
+
+        logger.error("Added order");
+
 
         cartProductDAO.deleteFromCart(user);
 

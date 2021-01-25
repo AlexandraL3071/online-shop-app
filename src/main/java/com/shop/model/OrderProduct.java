@@ -11,8 +11,9 @@ public class OrderProduct {
 
     private int selectedQuantity;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn
+    @ManyToOne(
+            fetch = FetchType.LAZY
+    )
     private CustomOrder customOrder;
 
     @ManyToOne

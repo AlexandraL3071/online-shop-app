@@ -62,9 +62,16 @@
             <h3>
                 Shipping details:
             </h3>
-            <h5>User: <s:textfield name="username" value="%{username}" readonly="true"/></h5>
+            <h5>User: <s:textfield id="username" name="username" value="%{username}" readonly="true"/></h5>
+            <script type="text/javascript">
+                if(document.getElementById("username").value === "anonymous"){
+                    document.getElementById("username").setAttribute("value", "Not an user");
+                }
+            </script>
             <h5>Date: <s:textfield name="date" value="%{date}" readonly="true"/></h5>
-            <h5>Address: <s:textfield type="text" id="address" name="address" size="100"
+            <h5>Name: <s:textfield type="text" id="name" name="name" size="50"
+                                      placeholder="Enter your name..."/></h5>
+            <h5>Address: <s:textfield type="text" id="address" name="address" size="50"
                                       placeholder="Enter your address..."/></h5>
             <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 8vw">
                 Confirm and Submit
