@@ -9,6 +9,7 @@ import com.shop.model.OrderProduct;
 import com.shop.model.User;
 import com.shop.service.CartService;
 import com.shop.service.PlaceOrderService;
+import com.shop.service.ProductService;
 import com.shop.service.UserService;
 import javassist.tools.reflect.Sample;
 import org.apache.commons.logging.LogFactory;
