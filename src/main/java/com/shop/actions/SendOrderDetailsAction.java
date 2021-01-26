@@ -40,6 +40,9 @@ public class SendOrderDetailsAction extends ActionSupport implements SessionAwar
     @Autowired
     private CartService cartService;
 
+    @Autowired
+    private ProductService productService;
+
     @Override
     public String execute() {
         if (session.get("loggedUser") != null) {
