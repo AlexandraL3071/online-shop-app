@@ -2,11 +2,13 @@ package com.shop.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.CartProduct;
-import com.shop.model.Product;
 import com.shop.service.CartService;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 public class ProductsInCartAction extends ActionSupport implements SessionAware {
 
     private List<CartProduct> products = new ArrayList<>();

@@ -1,27 +1,20 @@
 package com.shop.actions;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import com.shop.dao.UserDAO;
 import com.shop.model.CartProduct;
-import com.shop.model.CustomOrder;
-import com.shop.model.OrderProduct;
-import com.shop.model.User;
 import com.shop.service.CartService;
 import com.shop.service.PlaceOrderService;
 import com.shop.service.ProductService;
-import com.shop.service.UserService;
 import javassist.tools.reflect.Sample;
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SendOrderDetailsAction extends ActionSupport implements SessionAware {
     final static Log logger = LogFactory.getLog(Sample.class);

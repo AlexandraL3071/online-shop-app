@@ -2,18 +2,12 @@ package com.shop.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.shop.model.CartProduct;
-import com.shop.model.OrderProduct;
-import com.shop.model.Product;
 import com.shop.service.CartService;
 import com.shop.service.PlaceOrderService;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ReactiveAdapterRegistry;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 

@@ -2,7 +2,6 @@ package com.shop.dao.impl;
 
 import com.shop.dao.CustomOrderDAO;
 import com.shop.model.CustomOrder;
-import com.shop.model.Product;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -3,7 +3,6 @@ package com.shop.dao.impl;
 import com.shop.dao.CartProductDAO;
 import com.shop.dao.UserDAO;
 import com.shop.model.CartProduct;
-import com.shop.model.Product;
 import com.shop.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,7 +13,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 @Transactional

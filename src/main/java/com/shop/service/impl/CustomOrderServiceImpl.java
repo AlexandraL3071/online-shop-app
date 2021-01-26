@@ -2,7 +2,6 @@ package com.shop.service.impl;
 
 import com.shop.dao.CustomOrderDAO;
 import com.shop.model.CustomOrder;
-import com.shop.model.Product;
 import com.shop.service.CustomOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
