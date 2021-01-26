@@ -58,7 +58,7 @@
             <h5>Nume de utilizator: <s:textfield style="border: none" id="username" name="username" value="%{username}" readonly="true"/></h5>
             <script type="text/javascript">
                 if(document.getElementById("username").value === "anonymous"){
-                    document.getElementById("username").setAttribute("value", "Not an user");
+                    document.getElementById("username").setAttribute("value", "Neinregistrat");
                 }
             </script>
             <h5>Data: <s:textfield style="border: none" name="date" value="%{date}" readonly="true"/></h5>
