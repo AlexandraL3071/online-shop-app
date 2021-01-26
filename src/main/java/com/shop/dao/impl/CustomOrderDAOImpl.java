@@ -25,4 +25,10 @@ public class CustomOrderDAOImpl implements CustomOrderDAO {
 
         return query.getResultList();
     }
+
+    @Override
+    public boolean addOrder(CustomOrder customOrder) {
+        manager.merge(customOrder);
+        return true;
+    }
 }

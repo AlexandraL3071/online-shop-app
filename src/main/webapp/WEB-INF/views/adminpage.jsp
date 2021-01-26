@@ -88,6 +88,7 @@
             <tr>
                 <th style="width: 5%; word-wrap: break-word;" scope="col">Id</th>
                 <th style="width: 11%; word-wrap: break-word;" scope="col">Username</th>
+                <th style="width: 11%; word-wrap: break-word;" scope="col">Name</th>
                 <th style="width: 34%; word-wrap: break-word;" scope="col">Produse (nume+cantitate)</th>
                 <th style="width: 10%; word-wrap: break-word;" scope="col">Pret Total</th>
                 <th style="width: 25%; word-wrap: break-word;" scope="col">Adresa de livrare</th>
@@ -99,6 +100,7 @@
                 <tr>
                     <th style="word-wrap: break-word" scope="row"><s:property value="id"/></th>
                     <td style="word-wrap: break-word"><s:property value="user.getUsername()"/></td>
+                    <td style="word-wrap: break-word"><s:property value="name"/></td>
                     <td>
                         <table style="width: 100%; table-layout: fixed;" class="table table-sm table-hover table-bordered">
                             <tbody>

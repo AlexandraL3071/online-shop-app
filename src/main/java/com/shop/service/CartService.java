@@ -9,5 +9,5 @@ public interface CartService {
 
     void addToCart(CartProduct cartProduct);
 
-    List<Product> findProductsByUsername(String username);
+    List<CartProduct> findProductsByUsername(String username);
 }

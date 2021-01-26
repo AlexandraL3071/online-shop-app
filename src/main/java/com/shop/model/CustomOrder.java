@@ -15,13 +15,20 @@ public class CustomOrder {
 
     private Double totalPrice;
 
+    private String name;
+
     private String deliveryAddress;
 
     @ManyToOne
     @JoinColumn
     private User user;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "customOrder")
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            mappedBy = "customOrder",
+            fetch = FetchType.EAGER
+    )
     private Collection<OrderProduct> orderProducts;
 
     public int getId() {
@@ -70,5 +77,13 @@ public class CustomOrder {
 
     public void setOrderProducts(Collection<OrderProduct> orderProducts) {
         this.orderProducts = orderProducts;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

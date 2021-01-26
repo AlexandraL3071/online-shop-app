@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,7 +32,15 @@ public class CartProductDAOImpl implements CartProductDAO {
     }
 
     @Override
-    public List<Product> findProductsByUsername(String username) {
+    public void deleteFromCart(User user) {
+        String queryString = "DELETE FROM CartProduct cp where cp.user=:user";
+        Query query = manager.createQuery(queryString);
+        query.setParameter("user", user);
+        query.executeUpdate();
+    }
+
+    @Override
+    public List<CartProduct> findProductsByUsername(String username) {
         User user = new User();
         user.setUsername(username);
         User foundUser = userDAO.findUserByName(user);
@@ -39,8 +48,6 @@ public class CartProductDAOImpl implements CartProductDAO {
         TypedQuery<CartProduct> query = manager.createQuery(queryString, CartProduct.class);
         query.setParameter("user", foundUser);
 
-        return query.getResultList().stream()
-                .map(CartProduct::getProduct)
-                .collect(Collectors.toList());
+        return query.getResultList();
     }
 }

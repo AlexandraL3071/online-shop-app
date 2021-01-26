@@ -43,5 +43,13 @@
             <result name="success">/WEB-INF/views/cart.jsp</result>
         </action>
 
+        <action name="placeOrder" class="com.shop.actions.PlaceOrderAction" method="execute">
+            <result name="success">/WEB-INF/views/placeOrder.jsp</result>
+        </action>
+
+        <action name="sendOrderDetails" class="com.shop.actions.SendOrderDetailsAction" method="execute">
+            <result name="success">/WEB-INF/views/confirmationOrder.jsp</result>
+            <result name="error">/WEB-INF/views/errorOrder.jsp</result>
+        </action>
     </package>
 </struts>

@@ -36,7 +36,7 @@
             </div>
             <br/>
             <div>
-                <a href="#" class="btn btn-info btn-lg">
+                <a href="productsInCart" class="btn btn-info btn-lg">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                          class="bi bi-cart-fill" viewBox="0 0 20 20">
                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
@@ -70,7 +70,8 @@
         <div id="grid">
             <s:iterator value="productList">
                 <div>
-                <div class="card" style="width: 18rem;margin: 8px">
+                <s:form action="cartProducts" class="card" style="width: 18rem;margin: 8px" theme="css_xhtml">
+                    <s:hidden  value="%{id}" name="productId" />
                     <img class="card-img-top" src="images/<s:property value="image"/>" width="200" height="200"
                          alt="product photo">
                     <div class="card-body">
@@ -78,15 +79,11 @@
                         <p class="card-text"><s:property value="description"/></p>
                         <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
                         <p class="card-text">Pret: <s:property value="price"/> lei</p>
-                        <label for="quantity">Cantitate:</label>
-                        <input type="number" id="quantity" name="quantity" min="1"
-                               max="<s:property value="totalQuantity"/>">
+                        <p class="card-text">Cantitate: <s:textfield type="number" id="quantity" name="quantity" min="1"
+                                                                     max="<s:property value='totalQuantity'/>"/></p>
+                        <button type="submit" class="btn btn-primary add-to-cart-button">Adauga in cos</button>
                     </div>
-                    <div class="card-body">
-                        <a href="cartProducts?productId=<s:property value="id"/>" class="btn btn-primary add-to-cart-button">Adauga
-                            in cos</a>
-                    </div>
-                </div>
+                </s:form>
             </div>
                 <br>
             </s:iterator>

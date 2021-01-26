@@ -1,6 +1,7 @@
 package com.shop.actions;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.shop.model.CartProduct;
 import com.shop.model.Product;
 import com.shop.service.CartService;
 import org.apache.struts2.interceptor.SessionAware;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.*;
 public class ProductsInCartAction extends ActionSupport implements SessionAware {
 
-    private List<Product> products = new ArrayList<>();
+    private List<CartProduct> products = new ArrayList<>();
     private Map<String, Object> session;
 
     @Autowired
@@ -28,11 +29,11 @@ public class ProductsInCartAction extends ActionSupport implements SessionAware 
         return "success";
     }
 
-    public List<Product> getProducts() {
+    public List<CartProduct> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<CartProduct> products) {
         this.products = products;
     }
 
