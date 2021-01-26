@@ -80,7 +80,7 @@
                         <p class="card-text">Stoc: <s:property value="totalQuantity"/></p>
                         <p class="card-text">Pret: <s:property value="price"/> lei</p>
                         <p class="card-text">Cantitate: <s:textfield type="number" id="quantity" name="quantity" min="1"
-                                                                     max="<s:property value='totalQuantity'/>"/></p>
+                                                                     max="%{totalQuantity}"/></p>
                         <button type="submit" class="btn btn-primary add-to-cart-button">Adauga in cos</button>
                     </div>
                 </s:form>
