@@ -26,7 +26,12 @@ public class ProductsInCartAction extends ActionSupport implements SessionAware 
         }
 
         products = cartService.findProductsByUsername(username);
-        return "success";
+
+        if (username.equals("anonymous")) {
+            return "anonymous";
+        }
+
+        return "loggedUser";
     }
 
     public List<CartProduct> getProducts() {

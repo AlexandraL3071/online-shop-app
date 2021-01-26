@@ -40,7 +40,8 @@
         </action>
 
         <action name="productsInCart" class="com.shop.actions.ProductsInCartAction" method="execute">
-            <result name="success">/WEB-INF/views/cart.jsp</result>
+            <result name="loggedUser">/WEB-INF/views/cart.jsp</result>
+            <result name="anonymous">/WEB-INF/views/anonymousUserCart.jsp</result>
         </action>
 
         <action name="placeOrder" class="com.shop.actions.PlaceOrderAction" method="execute">
