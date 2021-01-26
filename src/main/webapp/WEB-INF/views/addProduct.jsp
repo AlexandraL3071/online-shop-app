@@ -75,7 +75,7 @@
     <hr/>
     <div class="row" id="footer">
         <div class="col" style="text-align: center">
-            TPJAD Project 2021
+            Proiect TPJAD 2021
         </div>
     </div>
 </div>

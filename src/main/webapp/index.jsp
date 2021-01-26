@@ -109,7 +109,7 @@
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2>Welcome to E-LECTRONIX!</h2>
+                            <h2>Bine ai venit pe E-LECTRONIX!</h2>
                         </div>
                     </div>
                     <hr>
@@ -121,25 +121,25 @@
                                 <div class="form-group">
                                     <input type="text" name="username" id="username" name="username"
                                            required="required" tabindex="1" class="form-control"
-                                           placeholder="Username" value="">
+                                           placeholder="Nume de utilizator" value="">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" id="password" name="password"
-                                           tabindex="2" class="form-control" placeholder="Password">
+                                           tabindex="2" class="form-control" placeholder="Parola">
                                 </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-sm-6 col-sm-offset-3">
                                             <input type="submit"
                                                    formaction="login"
-                                                   value="Login"
+                                                   value="Autentificare"
                                                    name="login-submit"
                                                    id="login-submit"
                                                    tabindex="2"
                                                    class="form-control btn btn-login"
                                             >
                                             <input type="submit"
-                                                   value="Register"
+                                                   value="Inregistrare"
                                                    name="register-submit"
                                                    id="register-submit"
                                                    tabindex="2"

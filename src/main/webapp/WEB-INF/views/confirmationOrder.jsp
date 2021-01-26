@@ -18,10 +18,10 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-sm-6 col-sm-offset-3">
-            <br><br> <h2 style="color:#0fad00">Success</h2>
-            <h3>Your order has been successfully sent!</h3>
-            <p style="font-size:20px;color:#5C5C5C;">Thank you for shopping with us!</p>
-            <a href="products" class="btn btn-success">     Enter Site      </a>
+            <br><br> <h2 style="color:#0fad00">Succes</h2>
+            <h3>Comanda dumneavoastra a fost trimisa succes!</h3>
+            <p style="font-size:20px;color:#5C5C5C;">Multumim ca faceti cumaraturi de la noi!</p>
+            <a href="products" class="btn btn-success">     Inapoi la site     </a>
             <br><br>
         </div>
 

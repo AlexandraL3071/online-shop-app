@@ -68,8 +68,8 @@
 </style>
 <body>
 <div class="container">
-    <span class="mytext1">We are happy to see you!</span>
-    <a class="mytext2" href="products"> ENTER SITE </a>
+    <span class="mytext1">Ne bucuram sa te vedem!</span>
+    <a class="mytext2" href="products"> Intra pe site </a>
 <%--    <a href="products" class="btn btn-primary">Enter</a>--%>
 </div>
 <%--<div style="text-align: center;">--%>

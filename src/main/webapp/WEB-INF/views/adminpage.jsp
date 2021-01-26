@@ -60,7 +60,7 @@
                 <th style="width: 10%; word-wrap: break-word;" scope="col">Imagine</th>
                 <th style="width: 9%; word-wrap: break-word;" scope="col">Categorie</th>
                 <th style="width: 6%; word-wrap: break-word;" scope="col">Sterge</th>
-                <th style="width: 6%; word-wrap: break-word;" scope="col">Update</th>
+                <th style="width: 6%; word-wrap: break-word;" scope="col">Modificare</th>
             </tr>
             </thead>
             <tbody>
@@ -76,7 +76,7 @@
                     <td style="word-wrap: break-word"><s:property value="image"/></td>
                     <td style="word-wrap: break-word"><s:property value="category.getName()"/></td>
                     <td><input form="formd<s:property value="id"/>" class="input btn btn-danger" type="submit" value="Sterge" /></td>
-                    <td><input form="formu<s:property value="id"/>" class="input btn btn-primary" type="submit" value="Update" /></td>
+                    <td><input form="formu<s:property value="id"/>" class="input btn btn-primary" type="submit" value="Modificare" /></td>
                 </tr>
             </s:iterator>
             </tbody>
@@ -87,8 +87,8 @@
             <thead>
             <tr>
                 <th style="width: 5%; word-wrap: break-word;" scope="col">Id</th>
-                <th style="width: 11%; word-wrap: break-word;" scope="col">Username</th>
-                <th style="width: 11%; word-wrap: break-word;" scope="col">Name</th>
+                <th style="width: 11%; word-wrap: break-word;" scope="col">Nume de utilizator</th>
+                <th style="width: 11%; word-wrap: break-word;" scope="col">Nume</th>
                 <th style="width: 34%; word-wrap: break-word;" scope="col">Produse (nume+cantitate)</th>
                 <th style="width: 10%; word-wrap: break-word;" scope="col">Pret Total</th>
                 <th style="width: 25%; word-wrap: break-word;" scope="col">Adresa de livrare</th>
@@ -126,7 +126,7 @@
     <hr/>
     <div class="row" id="footer">
         <div class="col" style="text-align: center">
-            TPJAD Project 2021
+            Proiect TPJAD 2021
         </div>
     </div>
 </div>

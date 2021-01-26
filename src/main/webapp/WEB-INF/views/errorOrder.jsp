@@ -12,8 +12,8 @@
 </head>
 <body>
 <div style="text-align: center;">
-    <h3 style="color:red">Oops! There was an error with your command. Please try again.</h3>
-    <h3>Go back to shop:</h3>
+    <h3 style="color:red">Oops! A aparut o eroare in legatura cu comanda ta. Te rugam sa incerci mai tarziu.</h3>
+    <h3>Inapoi la site:</h3>
     <a href="products" class="btn btn-primary">Enter</a>
 </div>
 </body>

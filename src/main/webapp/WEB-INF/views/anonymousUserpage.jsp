@@ -31,7 +31,7 @@
         <div class="col-sm" style="text-align: right">
             <div>
                 <a href="index.jsp" class="btn btn-info btn-lg">
-                    Login
+                    Autentificare
                 </a>
             </div>
             <br/>
@@ -96,7 +96,7 @@
 <hr/>
 <div class="row" id="footer">
     <div class="col" style="text-align: center">
-        TPJAD Project 2021
+        Proiect TPJAD 2021
     </div>
 </div>
 </div>

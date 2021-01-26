@@ -36,8 +36,8 @@
                 <td><input class="cell" type="password" id="password" name="password" required="required"></td>
             </tr>
         </table>
-        <input class="btn btn-primary" type="submit" formaction="login" value="Login"/>
-        <input class="btn btn-primary" type="submit" value="Register"/>
+        <input class="btn btn-primary" type="submit" formaction="login" value="Autentificare"/>
+        <input class="btn btn-primary" type="submit" value="Inregistrare"/>
     </form>
 </div>
 </body>

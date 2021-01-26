@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm" style="text-align: right">
             <a href="index.jsp" class="btn btn-info btn-lg">
-                Login
+                Autentificare
             </a>
         </div>
     </div>
@@ -30,11 +30,11 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Price</th>
+                    <th scope="col">Imagine</th>
+                    <th scope="col">Nume</th>
+                    <th scope="col">Descriere</th>
+                    <th scope="col">Cantitate</th>
+                    <th scope="col">Pret</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -55,17 +55,17 @@
             <h3>
                 Detalii privind livrarea:
             </h3>
-            <h5>User: <s:textfield style="border: none" id="username" name="username" value="%{username}" readonly="true"/></h5>
+            <h5>Nume de utilizator: <s:textfield style="border: none" id="username" name="username" value="%{username}" readonly="true"/></h5>
             <script type="text/javascript">
                 if(document.getElementById("username").value === "anonymous"){
                     document.getElementById("username").setAttribute("value", "Not an user");
                 }
             </script>
-            <h5>Date: <s:textfield style="border: none" name="date" value="%{date}" readonly="true"/></h5>
-            <h5>Name: <s:textfield style="border: none" type="text" id="name" name="name" size="50"
-                                   placeholder="Enter your name..."/></h5>
-            <h5>Address: <s:textfield style="border: none" type="text" id="address" name="address" size="50"
-                                      placeholder="Enter your address..."/></h5>
+            <h5>Data: <s:textfield style="border: none" name="date" value="%{date}" readonly="true"/></h5>
+            <h5>Nume: <s:textfield style="border: none" type="text" id="name" name="name" size="50"
+                                   placeholder="Introdu numele..."/></h5>
+            <h5>Adresa: <s:textfield style="border: none" type="text" id="address" name="address" size="50"
+                                      placeholder="Introdu adresa..."/></h5>
             <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 8vw">
                 Confirma si trimite
             </button>
