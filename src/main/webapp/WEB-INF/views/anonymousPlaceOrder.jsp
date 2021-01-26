@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: vchele
-  Date: 24/01/2021
-  Time: 17:21
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <html>
@@ -24,8 +17,8 @@
             </a>
         </div>
         <div class="col-sm" style="text-align: right">
-            <a href="logout" class="btn btn-info btn-lg">
-                Logout
+            <a href="index.jsp" class="btn btn-info btn-lg">
+                Login
             </a>
         </div>
     </div>
@@ -70,7 +63,7 @@
             </script>
             <h5>Date: <s:textfield style="border: none" name="date" value="%{date}" readonly="true"/></h5>
             <h5>Name: <s:textfield style="border: none" type="text" id="name" name="name" size="50"
-                                      placeholder="Enter your name..."/></h5>
+                                   placeholder="Enter your name..."/></h5>
             <h5>Address: <s:textfield style="border: none" type="text" id="address" name="address" size="50"
                                       placeholder="Enter your address..."/></h5>
             <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 8vw">

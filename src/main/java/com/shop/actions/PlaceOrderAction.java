@@ -47,7 +47,11 @@ public class PlaceOrderAction extends ActionSupport implements SessionAware {
         LocalDateTime today = LocalDateTime.now();
         this.date = today.toString();
 
-        return "success";
+        if (username.equals("anonymous")) {
+            return "anonymous";
+        }
+
+        return "loggedUser";
     }
 
     @Override

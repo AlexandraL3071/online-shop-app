@@ -70,7 +70,7 @@
     <br>
     <s:form action="placeOrder" class="col">
         <button id="submitButton" type="submit" class="btn btn-primary btn-lg btn-block">
-            Place Order
+            Plaseaza comanda
         </button>
         <script type="text/javascript">
             if(document.getElementById("grid").childElementCount === 0){

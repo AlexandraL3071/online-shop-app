@@ -45,7 +45,8 @@
         </action>
 
         <action name="placeOrder" class="com.shop.actions.PlaceOrderAction" method="execute">
-            <result name="success">/WEB-INF/views/placeOrder.jsp</result>
+            <result name="loggedUser">/WEB-INF/views/placeOrder.jsp</result>
+            <result name="anonymous">/WEB-INF/views/anonymousPlaceOrder.jsp</result>
         </action>
 
         <action name="sendOrderDetails" class="com.shop.actions.SendOrderDetailsAction" method="execute">
