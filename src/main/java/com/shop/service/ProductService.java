@@ -11,6 +11,8 @@ public interface ProductService {
 
     boolean updateProduct(int productId, int totalQuantity, double price);
 
+    boolean updateProductQuantity(int productId, int deductedQuantity);
+
     List<Product> findAllProducts();
 
     Product findProductById(int productId);

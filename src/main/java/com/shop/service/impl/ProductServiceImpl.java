@@ -54,6 +54,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public boolean updateProductQuantity(int productId, int deductedQuantity) {
+        Product product = productDAO.findProductById(productId);
+        int newQuantity = product.getTotalQuantity()-deductedQuantity;
+        product.setTotalQuantity(Math.max(newQuantity, 0));
+
+        return productDAO.updateProduct(product);
+    }
+
+    @Override
     public List<Product> findAllProducts() {
         return productDAO.findAll();
     }

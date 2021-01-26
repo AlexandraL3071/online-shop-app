@@ -50,10 +50,27 @@ public class SendOrderDetailsAction extends ActionSupport implements SessionAwar
 
         logger.error("Username: " + username);
 
+        Map<Integer, List<Integer>> idQuantityTuples = new HashMap<>();
+
         this.products = cartService.findProductsByUsername(username);
+
+        for (CartProduct p : products){
+            List<Integer> list = new ArrayList<>();
+            idQuantityTuples.put(p.getProduct().getId(), list);
+        }
+
+        for (CartProduct p : products){
+            idQuantityTuples.get(p.getProduct().getId()).add(p.getSelectedQuantity());
+        }
 
         if (!placeOrderService.sendOrderDetails(username, name, date, address, totalPrice, products))
             return "error";
+
+        for (Map.Entry<Integer,List<Integer>> entry : idQuantityTuples.entrySet()){
+            for (Integer value : entry.getValue()) {
+                productService.updateProductQuantity(entry.getKey(), value);
+            }
+        }
 
         return "success";
     }
